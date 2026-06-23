@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { HiArrowUp } from 'react-icons/hi2';
 import Navbar    from './components/Navbar';
 import Hero      from './components/Hero';

@@ -83,66 +83,9 @@ const Stat: React.FC<{ value: string; label: string }> = ({ value, label }) => (
   </div>
 );
 
-/* ─── Tech icon cell ─── */
-const TechIcon: React.FC<{ name: string; Icon: React.ElementType; color: string }> = ({ name, Icon, color }) => (
-  <div style={{ display:'flex', flexDirection:'column', alignItems:'center', gap:6, flex:'0 0 auto' }}>
-    <div
-      style={{
-        width: 48, height: 48, borderRadius: 14,
-        background: '#fafafa',
-        border: '1px solid #f3f4f6',
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-        boxShadow: '0 2px 8px rgba(0,0,0,.02)',
-        transition: 'all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)',
-        cursor: 'default',
-        position: 'relative',
-        overflow: 'hidden'
-      }}
-      onMouseEnter={e => {
-        const el = e.currentTarget as HTMLElement;
-        el.style.transform = 'translateY(-4px) scale(1.05)';
-        el.style.boxShadow = `0 12px 24px ${color}30`;
-        el.style.borderColor = `${color}50`;
-      }}
-      onMouseLeave={e => {
-        const el = e.currentTarget as HTMLElement;
-        el.style.transform = 'translateY(0) scale(1)';
-        el.style.boxShadow = '0 2px 8px rgba(0,0,0,.02)';
-        el.style.borderColor = '#f3f4f6';
-      }}
-    >
-      <Icon size={22} style={{ color, flexShrink: 0, zIndex: 2 }} />
-      <div style={{
-        position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
-        background: `radial-gradient(circle at center, ${color}15 0%, transparent 70%)`,
-        zIndex: 1
-      }} />
-    </div>
-    <span style={{ fontSize: 9.5, fontWeight: 700, color: '#6b7280', letterSpacing: '.03em', textAlign: 'center' }}>
-      {name}
-    </span>
-  </div>
-);
 
-/* ─── Layer row ─── */
-const LayerRow: React.FC<{ label: string; color: string; items: typeof LAYERS[0]['items'] }> = ({ label, color, items }) => (
-  <div>
-    <div style={{ display:'flex', alignItems:'center', gap:10, marginBottom:16 }}>
-      <div style={{ flex:1, height:1, background:'rgba(229,231,235,0.6)' }} />
-      <span style={{
-        fontSize: 10, fontWeight: 800, color,
-        letterSpacing: '.12em', textTransform: 'uppercase',
-        padding: '4px 12px', borderRadius: 999,
-        background: `${color}14`, border: `1px solid ${color}25`,
-        backdropFilter: 'blur(4px)'
-      }}>{label}</span>
-      <div style={{ flex:1, height:1, background:'rgba(229,231,235,0.6)' }} />
-    </div>
-    <div style={{ display:'flex', flexWrap:'wrap', justifyContent:'center', gap:12 }}>
-      {items.map(item => <TechIcon key={item.name} {...item} />)}
-    </div>
-  </div>
-);
+
+
 
 /* ─── Hero ─── */
 const Hero: React.FC = () => {
@@ -502,7 +445,7 @@ const Hero: React.FC = () => {
                   { cx: 350, cy: 330, item: LAYERS[2].items[3] },
                   { cx: 250, cy: 420, item: 'CORE' }
                 ];
-                return MESH_NODES.map((node, i) => {
+                return MESH_NODES.map((node) => {
                   if (node.item === 'CORE') {
                     return (
                       <div key="core" className="diamond-node" style={{ 
