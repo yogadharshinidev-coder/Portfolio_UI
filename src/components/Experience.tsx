@@ -42,7 +42,7 @@ const Experience: React.FC = () => {
   return (
     <section id="experience" className="section" style={{ background:'#fff' }}>
       <style>{`
-        @media (max-width: 480px) {
+        @media (max-width: 768px) {
           .experience-timeline-line {
             left: 12px !important;
           }
@@ -51,6 +51,12 @@ const Experience: React.FC = () => {
           }
           .experience-card {
             margin-left: 32px !important;
+          }
+          .experience-card-header {
+            padding: 16px 18px !important;
+          }
+          .experience-card-body {
+            padding: 0 18px 18px !important;
           }
         }
       `}</style>
@@ -98,6 +104,7 @@ const Experience: React.FC = () => {
                   transition:'all .3s',
                 }}>
                   <button
+                    className="experience-card-header"
                     style={{
                       width:'100%', textAlign:'left',
                       padding:'20px 24px', display:'flex',
@@ -132,7 +139,7 @@ const Experience: React.FC = () => {
                   </button>
 
                   <div style={{ maxHeight: open===i ? 600 : 0, overflow:'hidden', transition:'max-height .35s ease' }}>
-                    <div style={{ padding:'0 24px 24px', borderTop:'1px solid #f3f4f6', paddingTop:16 }}>
+                    <div className="experience-card-body" style={{ padding:'0 24px 24px', borderTop:'1px solid #f3f4f6', paddingTop:16 }}>
                       <ul style={{ display:'flex', flexDirection:'column', gap:10, marginBottom:16 }}>
                         {exp.points.map((p, pi) => (
                           <li key={pi} style={{ display:'flex', gap:10, fontSize:13.5, color:'#4b5563', lineHeight:1.65 }}>

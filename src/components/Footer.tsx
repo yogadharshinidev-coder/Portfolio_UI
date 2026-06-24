@@ -7,7 +7,7 @@ const NAV_LINKS = ['About', 'Skills', 'Experience', 'Projects', 'Education', 'Co
 const SOCIALS = [
   {
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/yogadharshini-vr',
+    href: 'https://www.linkedin.com/in/yogadharshini-v-041587272',
     Icon: FaLinkedinIn,
     color: '#0A66C2',
     bg: 'rgba(10,102,194,.14)',
@@ -77,37 +77,40 @@ const Footer: React.FC = () => (
 
           {/* Social icons */}
           <div style={{ display: 'flex', gap: 10, paddingTop: 4 }}>
-            {SOCIALS.map(({ label, href, Icon, color, bg }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={label}
-                style={{
-                  width: 38, height: 38, borderRadius: 10,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  background: bg,
-                  border: '1px solid rgba(255,255,255,.1)',
-                  color, textDecoration: 'none',
-                  transition: 'all .22s',
-                }}
-                onMouseEnter={e => {
-                  const el = e.currentTarget as HTMLElement;
-                  el.style.transform = 'translateY(-3px)';
-                  el.style.boxShadow = `0 6px 16px ${color}40`;
-                  el.style.borderColor = color;
-                }}
-                onMouseLeave={e => {
-                  const el = e.currentTarget as HTMLElement;
-                  el.style.transform = '';
-                  el.style.boxShadow = 'none';
-                  el.style.borderColor = 'rgba(255,255,255,.1)';
-                }}
-              >
-                <Icon size={16} />
-              </a>
-            ))}
+            {SOCIALS.map(({ label, href, Icon, color, bg }) => {
+              const isMail = href.startsWith('mailto:');
+              return (
+                <a
+                  key={label}
+                  href={href}
+                  target={isMail ? undefined : "_blank"}
+                  rel={isMail ? undefined : "noopener noreferrer"}
+                  aria-label={label}
+                  style={{
+                    width: 38, height: 38, borderRadius: 10,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    background: bg,
+                    border: '1px solid rgba(255,255,255,.1)',
+                    color, textDecoration: 'none',
+                    transition: 'all .22s',
+                  }}
+                  onMouseEnter={e => {
+                    const el = e.currentTarget as HTMLElement;
+                    el.style.transform = 'translateY(-3px)';
+                    el.style.boxShadow = `0 6px 16px ${color}40`;
+                    el.style.borderColor = color;
+                  }}
+                  onMouseLeave={e => {
+                    const el = e.currentTarget as HTMLElement;
+                    el.style.transform = '';
+                    el.style.boxShadow = 'none';
+                    el.style.borderColor = 'rgba(255,255,255,.1)';
+                  }}
+                >
+                  <Icon size={16} />
+                </a>
+              );
+            })}
           </div>
         </div>
 
