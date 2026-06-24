@@ -8,8 +8,8 @@ const EXPERIENCES = [
     role: 'Full Stack Developer',
     period: 'Jul 2024 – Present',
     type: 'Full-time',
-    accent: '#0f1c2d',
-    accentBg: '#f1f5f9',
+    accent: 'var(--navy)',
+    accentBg: 'var(--blue-dim)',
     points: [
       'Designed and developed scalable ERP web applications using React.js, TypeScript, and ASP.NET Core Web API with Entity Framework Core.',
       'Built and maintained Express.js middleware services for API orchestration, request handling, and seamless frontend-backend integration.',
@@ -26,8 +26,8 @@ const EXPERIENCES = [
     role: 'Backend Developer',
     period: 'Sep 2023 – Mar 2024',
     type: 'Internship',
-    accent: '#1a4a6e',
-    accentBg: '#eff6ff',
+    accent: 'var(--blue)',
+    accentBg: 'var(--teal-dim)',
     points: [
       'Handled SQL database operations including writing and maintaining SQL queries and stored procedures.',
       'Supported backend development and database integration for client-facing business applications.',
@@ -41,6 +41,19 @@ const Experience: React.FC = () => {
 
   return (
     <section id="experience" className="section" style={{ background:'#fff' }}>
+      <style>{`
+        @media (max-width: 480px) {
+          .experience-timeline-line {
+            left: 12px !important;
+          }
+          .experience-dot {
+            left: -1px !important;
+          }
+          .experience-card {
+            margin-left: 32px !important;
+          }
+        }
+      `}</style>
       <div className="wrap">
 
         {/* Header */}
@@ -55,16 +68,16 @@ const Experience: React.FC = () => {
         {/* Timeline */}
         <div style={{ maxWidth:860, margin:'0 auto', position:'relative' }}>
           {/* Vertical line */}
-          <div style={{
+          <div className="experience-timeline-line" style={{
             position:'absolute', top:0, bottom:0, left:20, width:2, borderRadius:2,
-            background:'linear-gradient(to bottom,#0f1c2d,#2dd4bf,transparent)',
+            background:'linear-gradient(to bottom,var(--navy),var(--teal),transparent)',
           }} />
 
           <div style={{ display:'flex', flexDirection:'column', gap:20 }}>
             {EXPERIENCES.map((exp, i) => (
               <div key={exp.company} className="reveal-left" style={{ position:'relative' }}>
                 {/* Dot */}
-                <div style={{
+                <div className="experience-dot" style={{
                   position:'absolute', top:26, left:6,
                   width:28, height:28, borderRadius:'50%',
                   background: exp.accentBg, border:`2px solid #fff`,
@@ -76,7 +89,7 @@ const Experience: React.FC = () => {
                 </div>
 
                 {/* Card */}
-                <div style={{
+                <div className="experience-card" style={{
                   marginLeft:56,
                   background:'#fff',
                   border:`1.5px solid ${open===i ? exp.accent+'55' : '#e5e7eb'}`,
@@ -106,7 +119,7 @@ const Experience: React.FC = () => {
                           <HiMapPin size={11}/> {exp.location}
                         </span>
                       </div>
-                      <h3 style={{ fontFamily:'Outfit,sans-serif', fontWeight:800, fontSize:16, color:'#0f1c2d', margin:0 }}>
+                      <h3 style={{ fontFamily:'Outfit,sans-serif', fontWeight:800, fontSize:16, color:'var(--navy)', margin:0 }}>
                         {exp.role}
                       </h3>
                       <p style={{ fontSize:13, fontWeight:700, color:exp.accent, marginTop:3 }}>{exp.company}</p>
@@ -123,7 +136,7 @@ const Experience: React.FC = () => {
                       <ul style={{ display:'flex', flexDirection:'column', gap:10, marginBottom:16 }}>
                         {exp.points.map((p, pi) => (
                           <li key={pi} style={{ display:'flex', gap:10, fontSize:13.5, color:'#4b5563', lineHeight:1.65 }}>
-                            <HiCheckCircle size={15} style={{ color:'#2dd4bf', flexShrink:0, marginTop:2 }} />
+                            <HiCheckCircle size={15} style={{ color:'var(--teal)', flexShrink:0, marginTop:2 }} />
                             {p}
                           </li>
                         ))}

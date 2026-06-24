@@ -9,8 +9,8 @@ const PROJECTS = [
     subtitle: 'Frontend Application',
     badge:    'Enterprise ERP',
     icon:     HiArchiveBox,
-    accent:   '#0f1c2d',
-    accentBg: '#f1f5f9',
+    accent:   'var(--navy)',
+    accentBg: 'var(--blue-dim)',
     desc: 'A comprehensive inventory management solution with real-time stock tracking, automated reorder alerts, and seamless server-state synchronisation for enterprise-level operations.',
     highlights: [
       'TanStack React Query for server-state management, caching & background refetching',
@@ -29,8 +29,8 @@ const PROJECTS = [
     subtitle: 'Full Stack Application',
     badge:    'Compliance System',
     icon:     HiDocumentCheck,
-    accent:   '#1a4a6e',
-    accentBg: '#eff6ff',
+    accent:   'var(--blue)',
+    accentBg: 'var(--teal-dim)',
     desc: 'A sophisticated certification auditing & lifecycle management platform with expiry tracking, renewal workflows, and CBS system integration for regulatory compliance.',
     highlights: [
       'ASP.NET Core MVC with Entity Framework Core for the complete certification lifecycle',
@@ -64,7 +64,7 @@ const Projects: React.FC = () => (
       </div>
 
       {/* Cards */}
-      <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(440px, 1fr))', gap:24 }}>
+      <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(280px, 1fr))', gap:24 }}>
         {PROJECTS.map((proj, i) => (
           <div
             key={proj.title}
@@ -90,7 +90,7 @@ const Projects: React.FC = () => (
             }}
           >
             {/* Top accent bar */}
-            <div style={{ height:4, background:`linear-gradient(90deg,${proj.accent},#2dd4bf)` }} />
+            <div style={{ height:4, background:`linear-gradient(90deg,${proj.accent},var(--teal))` }} />
 
             {/* Card header */}
             <div style={{
@@ -112,7 +112,7 @@ const Projects: React.FC = () => (
                   background:proj.accentBg, color:proj.accent,
                   display:'inline-block', marginBottom:8,
                 }}>{proj.badge}</span>
-                <h3 style={{ fontFamily:'Outfit,sans-serif', fontWeight:900, fontSize:16, color:'#0f1c2d', lineHeight:1.3, margin:0 }}>
+                <h3 style={{ fontFamily:'Outfit,sans-serif', fontWeight:900, fontSize:16, color:'var(--navy)', lineHeight:1.3, margin:0 }}>
                   {proj.title}
                 </h3>
                 <p style={{ fontSize:12, color:'#9ca3af', marginTop:3 }}>{proj.subtitle}</p>
@@ -127,7 +127,7 @@ const Projects: React.FC = () => (
               <ul style={{ display:'flex', flexDirection:'column', gap:8 }}>
                 {proj.highlights.map((h, hi) => (
                   <li key={hi} style={{ display:'flex', gap:10, fontSize:13.5, color:'#4b5563' }}>
-                    <HiCheckCircle size={15} style={{ color:'#2dd4bf', flexShrink:0, marginTop:1 }} />
+                    <HiCheckCircle size={15} style={{ color:'var(--teal)', flexShrink:0, marginTop:1 }} />
                     {h}
                   </li>
                 ))}
@@ -151,7 +151,7 @@ const Projects: React.FC = () => (
 
       <p style={{ textAlign:'center', color:'#9ca3af', fontSize:13, marginTop:36 }}>
         All projects developed within enterprise ERP systems at{' '}
-        <span style={{ color:'#1a4a6e', fontWeight:600 }}>Navanala Technologies Private Limited</span>
+        <span style={{ color:'var(--blue)', fontWeight:600 }}>Navanala Technologies Private Limited</span>
       </p>
     </div>
   </section>

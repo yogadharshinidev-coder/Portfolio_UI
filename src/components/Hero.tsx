@@ -54,30 +54,33 @@ const LAYERS = [
 const Stat: React.FC<{ value: string; label: string }> = ({ value, label }) => (
   <div style={{
     flex: 1, minWidth: 100, textAlign: 'center',
-    padding: '18px 14px', 
-    background: 'rgba(255, 255, 255, 0.6)',
-    backdropFilter: 'blur(12px)',
-    borderRadius: 16, border: '1px solid rgba(255,255,255,0.8)',
-    boxShadow: '0 8px 32px rgba(15,28,45,.04)',
-    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+    padding: '20px 14px', 
+    background: 'rgba(255, 255, 255, 0.7)',
+    backdropFilter: 'blur(16px)',
+    borderRadius: 16, border: '1px solid rgba(229, 231, 235, 0.8)',
+    boxShadow: '0 8px 32px rgba(38,71,89,.04)',
+    transition: 'transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease',
   }}
   onMouseEnter={e => {
     e.currentTarget.style.transform = 'translateY(-4px)';
-    e.currentTarget.style.boxShadow = '0 12px 40px rgba(45,212,191,0.15)';
+    e.currentTarget.style.boxShadow = '0 12px 40px rgba(148,191,206,0.18)';
+    e.currentTarget.style.borderColor = 'rgba(148,191,206,0.3)';
   }}
   onMouseLeave={e => {
     e.currentTarget.style.transform = 'translateY(0)';
-    e.currentTarget.style.boxShadow = '0 8px 32px rgba(15,28,45,.04)';
+    e.currentTarget.style.boxShadow = '0 8px 32px rgba(38,71,89,.04)';
+    e.currentTarget.style.borderColor = 'rgba(229, 231, 235, 0.8)';
   }}
   >
     <p style={{
       fontFamily: 'Outfit, sans-serif',
-      fontSize: '2rem', fontWeight: 900, lineHeight: 1,
-      background: 'linear-gradient(135deg,#0f1c2d,#1a4a6e)',
-      WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
+      fontSize: '2.5rem', fontWeight: 900, lineHeight: 1,
+      color: 'var(--navy)',
+      textShadow: '0 2px 8px rgba(38,71,89,0.06)',
+      margin: 0,
     }}>{value}</p>
     <p style={{
-      fontSize: 10, fontWeight: 800, color: '#6b7280', marginTop: 8,
+      fontSize: 10, fontWeight: 800, color: '#6b7280', margin: '8px 0 0 0',
       textTransform: 'uppercase', letterSpacing: '.1em',
     }}>{label}</p>
   </div>
@@ -116,6 +119,7 @@ const Hero: React.FC = () => {
       <style>{`
         #hero { 
           background: #fafcff;
+          color: var(--text-body);
         }
         #hero-wrap {
           display: grid;
@@ -134,18 +138,18 @@ const Hero: React.FC = () => {
           background: transparent;
         }
         .hero-contact-link:hover { 
-          color:#1a4a6e; 
-          background: rgba(26,74,110,0.04);
+          color: var(--navy); 
+          background: var(--blue-dim);
           transform: translateY(-1px);
         }
         .hero-btn-p {
           position: relative;
           display:inline-flex; align-items:center; gap:10px;
           padding:14px 32px; border-radius:999px;
-          background:linear-gradient(135deg,#0f1c2d,#1a4a6e);
+          background:linear-gradient(135deg,var(--navy),var(--blue));
           color:#fff; font-size:14px; font-weight:800;
           text-decoration:none; letter-spacing:.04em;
-          box-shadow:0 8px 24px rgba(15,28,45,.25);
+          box-shadow:0 8px 24px var(--blue-dim);
           transition:all .3s cubic-bezier(0.25, 0.8, 0.25, 1);
           overflow: hidden;
         }
@@ -155,8 +159,8 @@ const Hero: React.FC = () => {
           transition: all 0.5s;
         }
         .hero-btn-p:hover {
-          background:linear-gradient(135deg,#1a4a6e,#2dd4bf);
-          box-shadow:0 12px 32px rgba(45,212,191,.35);
+          background:linear-gradient(135deg,var(--blue),var(--teal));
+          box-shadow:0 12px 32px var(--teal-border);
           transform:translateY(-3px);
         }
         .hero-btn-p:hover::before {
@@ -165,7 +169,7 @@ const Hero: React.FC = () => {
         .hero-btn-s {
           display:inline-flex; align-items:center; gap:8px;
           padding:13px 30px; border-radius:999px;
-          border: 2px solid rgba(15,28,45,0.1); color:#0f1c2d;
+          border: 2px solid var(--border); color: var(--navy);
           font-size:14px; font-weight:800; text-decoration:none;
           background: rgba(255,255,255,0.5);
           backdrop-filter: blur(8px);
@@ -173,19 +177,19 @@ const Hero: React.FC = () => {
         }
         .hero-btn-s:hover {
           background:#fff; transform:translateY(-3px);
-          border-color: rgba(45,212,191,0.4); color:#1a4a6e;
-          box-shadow:0 8px 24px rgba(45,212,191,.15);
+          border-color: var(--border-hi); color:var(--blue);
+          box-shadow:0 8px 24px var(--teal-dim);
         }
         .typewriter-cursor {
           display:inline-block; width:3px; height:1.1em;
-          background: linear-gradient(to bottom, #1a4a6e, #2dd4bf); 
+          background: linear-gradient(to bottom, var(--blue), var(--teal)); 
           margin-left:4px;
           animation:blink 1s step-end infinite;
           vertical-align:middle;
           border-radius:2px;
         }
         .gradient-text-anim {
-          background: linear-gradient(135deg, #0f1c2d 0%, #1a4a6e 50%, #2dd4bf 100%);
+          background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 50%, var(--teal) 100%);
           background-size: 200% auto;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
@@ -193,6 +197,7 @@ const Hero: React.FC = () => {
         }
         @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0;} }
         @keyframes shine { to { background-position: 200% center; } }
+        @keyframes pulse-dash { to { stroke-dashoffset: -40; } }
         @keyframes float-slow {
           0%, 100% { transform: translateY(0) rotate(0deg); }
           50% { transform: translateY(-20px) rotate(5deg); }
@@ -223,11 +228,11 @@ const Hero: React.FC = () => {
           z-index: 5;
         }
         .diamond-node:hover {
-          transform: rotate(45deg) scale(1.12) translateY(-6px) translateX(-6px);
-          box-shadow: 0 8px 16px -4px rgba(45,212,191,0.15), 
-                      0 30px 60px -12px rgba(45,212,191,0.25), 
+          transform: rotate(45deg) scale(1.15) translateY(-6px) translateX(-6px);
+          box-shadow: 0 8px 16px -4px var(--teal-dim), 
+                      0 30px 60px -12px var(--teal-border), 
                       inset 0 1px 0 rgba(255,255,255,1);
-          border-color: rgba(45,212,191,0.5);
+          border-color: var(--border-hi);
           z-index: 10;
         }
         .diamond-inner {
@@ -245,7 +250,61 @@ const Hero: React.FC = () => {
         .glass-card::before {
           content: '';
           position: absolute; top: 0; left: 0; width: 100%; height: 6px;
-          background: linear-gradient(90deg, #1a4a6e, #2dd4bf);
+          background: linear-gradient(90deg, var(--blue), var(--teal));
+        }
+        .tech-stack-container {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 500px;
+          height: 500px;
+          overflow: visible;
+          position: relative;
+          transition: all 0.3s ease;
+        }
+        .tech-stack-wrap {
+          position: relative;
+          width: 500px;
+          height: 500px;
+          flex-shrink: 0;
+          transform-origin: center center;
+          transition: transform 0.3s ease;
+        }
+        @media (max-width: 600px) {
+          .tech-stack-container {
+            width: 375px;
+            height: 375px;
+          }
+          .tech-stack-wrap {
+            transform: scale(0.75);
+          }
+          .hero-er {
+            height: 400px !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .tech-stack-container {
+            width: 300px;
+            height: 300px;
+          }
+          .tech-stack-wrap {
+            transform: scale(0.6);
+          }
+          .hero-er {
+            height: 320px !important;
+          }
+        }
+        @media (max-width: 380px) {
+          .tech-stack-container {
+            width: 250px;
+            height: 250px;
+          }
+          .tech-stack-wrap {
+            transform: scale(0.5);
+          }
+          .hero-er {
+            height: 270px !important;
+          }
         }
       `}</style>
 
@@ -258,24 +317,22 @@ const Hero: React.FC = () => {
         
         {/* Animated Background Mesh & Blobs */}
         <div style={{ position:'absolute', top:0, left:0, right:0, bottom:0, overflow:'hidden', pointerEvents:'none', zIndex:0 }}>
-
-
           {/* Top Right Blob */}
           <div style={{ 
             position:'absolute', top:'-10%', right:'-5%', width:600, height:600,
-            borderRadius:'50%', background:'radial-gradient(circle,rgba(45,212,191,.15) 0%,transparent 60%)',
+            borderRadius:'50%', background:'radial-gradient(circle, rgba(148, 191, 206, 0.16) 0%, transparent 70%)',
             animation: 'float-slow 12s ease-in-out infinite' 
           }} />
           {/* Bottom Left Blob */}
           <div style={{ 
             position:'absolute', bottom:'-15%', left:'-10%', width:700, height:700,
-            borderRadius:'50%', background:'radial-gradient(circle,rgba(26,74,110,.1) 0%,transparent 60%)',
+            borderRadius:'50%', background:'radial-gradient(circle, rgba(148, 191, 206, 0.1) 0%, transparent 70%)',
             animation: 'float-slow 15s ease-in-out infinite reverse' 
           }} />
           {/* Center Subtle Blob */}
           <div style={{ 
             position:'absolute', top:'30%', left:'40%', width:400, height:400,
-            borderRadius:'50%', background:'radial-gradient(circle,rgba(14,165,233,.08) 0%,transparent 60%)',
+            borderRadius:'50%', background:'radial-gradient(circle, rgba(148, 191, 206, 0.08) 0%, transparent 70%)',
             animation: 'float-medium 10s ease-in-out infinite' 
           }} />
         </div>
@@ -288,11 +345,11 @@ const Hero: React.FC = () => {
             {/* Greeting */}
             <div className="hero-e1" style={{ 
               display:'inline-flex', alignItems:'center', gap:10, 
-              padding:'6px 16px', background:'rgba(45,212,191,0.1)', 
-              borderRadius:999, width:'fit-content', border:'1px solid rgba(45,212,191,0.2)'
+              padding:'6px 16px', background:'var(--blue-dim)', 
+              borderRadius:999, width:'fit-content', border:'1px solid rgba(44,82,102,0.12)'
             }}>
-              <span style={{ width:8, height:8, borderRadius:'50%', background:'#2dd4bf', boxShadow:'0 0 10px #2dd4bf' }} />
-              <span style={{ fontSize:12, fontWeight:800, color:'#1a4a6e', letterSpacing:'.1em', textTransform:'uppercase' }}>
+              <span style={{ width:8, height:8, borderRadius:'50%', background:'var(--teal)', boxShadow:'0 0 10px var(--teal)' }} />
+              <span style={{ fontSize:12, fontWeight:800, color:'var(--blue)', letterSpacing:'.1em', textTransform:'uppercase' }}>
                 Hello, I'm
               </span>
             </div>
@@ -302,15 +359,13 @@ const Hero: React.FC = () => {
               <h1 style={{
                 fontFamily: 'Outfit, sans-serif',
                 fontWeight: 900,
-                fontSize: 'clamp(3.5rem, 6vw, 5.5rem)',
-                lineHeight: 1.05,
-                color: '#0f1c2d',
+                fontSize: 'clamp(1.7rem, 5vw, 3.5rem)',
+                lineHeight: 1.1,
+                color: 'var(--navy)',
                 letterSpacing: '-0.03em',
                 margin: 0,
               }}>
-                YOGADHARSHINI
-                <br />
-                <span className="gradient-text-anim">VR</span>
+                YOGADHARSHINI <span className="gradient-text-anim">VR</span>
               </h1>
             </div>
 
@@ -321,7 +376,7 @@ const Hero: React.FC = () => {
                 fontSize: '1.3rem', fontWeight: 800, color: '#4b5563',
               }}>
                 I build things as a{' '}
-                <span style={{ color: '#1a4a6e', background: 'linear-gradient(120deg, rgba(45,212,191,0.2) 0%, transparent 100%)', padding: '0 8px', borderRadius: 6 }}>
+                <span style={{ color: 'var(--navy)', background: 'var(--blue-dim)', padding: '0 8px', borderRadius: 6 }}>
                   {txt}
                 </span>
                 <span className="typewriter-cursor" />
@@ -331,27 +386,27 @@ const Hero: React.FC = () => {
             {/* Bio */}
             <p className="hero-e4" style={{ fontSize:16, color:'#4b5563', lineHeight:1.8, maxWidth:540, margin:0 }}>
              Building high-performance enterprise web applications with seamless user experiences and robust architectures using{' '}
-              <strong style={{ color:'#0f1c2d', fontWeight:800 }}>React.js</strong> and{' '}
-              <strong style={{ color:'#1a4a6e', fontWeight:800 }}>.NET Web API</strong>.
+              <strong style={{ color:'var(--navy)', fontWeight:800 }}>React.js</strong> and{' '}
+              <strong style={{ color:'var(--blue)', fontWeight:800 }}>.NET Web API</strong>.
             </p>
 
             {/* Contact links */}
             <div className="hero-e5" style={{ display:'flex', flexWrap:'wrap', gap:8, marginLeft: -8 }}>
               <a href="#" className="hero-contact-link">
-                <div style={{ padding:6, background:'#fff', borderRadius:8, boxShadow:'0 2px 8px rgba(0,0,0,0.05)' }}>
-                  <HiMapPin size={16} style={{ color:'#2dd4bf' }} />
+                <div style={{ padding:6, background:'#fff', borderRadius:8, boxShadow:'0 2px 8px rgba(0,0,0,0.05)', display:'flex' }}>
+                  <HiMapPin size={16} style={{ color:'var(--teal)' }} />
                 </div>
                 Erode, Tamil Nadu
               </a>
               <a href="mailto:yogadharshinidev@gmail.com" className="hero-contact-link">
-                <div style={{ padding:6, background:'#fff', borderRadius:8, boxShadow:'0 2px 8px rgba(0,0,0,0.05)' }}>
-                  <HiEnvelope size={16} style={{ color:'#2dd4bf' }} />
+                <div style={{ padding:6, background:'#fff', borderRadius:8, boxShadow:'0 2px 8px rgba(0,0,0,0.05)', display:'flex' }}>
+                  <HiEnvelope size={16} style={{ color:'var(--teal)' }} />
                 </div>
                 yogadharshinidev@gmail.com
               </a>
               <a href="tel:+919361352274" className="hero-contact-link">
-                <div style={{ padding:6, background:'#fff', borderRadius:8, boxShadow:'0 2px 8px rgba(0,0,0,0.05)' }}>
-                  <HiPhone size={16} style={{ color:'#2dd4bf' }} />
+                <div style={{ padding:6, background:'#fff', borderRadius:8, boxShadow:'0 2px 8px rgba(0,0,0,0.05)', display:'flex' }}>
+                  <HiPhone size={16} style={{ color:'var(--teal)' }} />
                 </div>
                 +91 9361352274
               </a>
@@ -377,102 +432,104 @@ const Hero: React.FC = () => {
 
           {/* ── RIGHT: Extraordinary Neural Diamond Mesh ── */}
           <div className="hero-er" style={{ position: 'relative', zIndex: 2, height: 540, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <div style={{ position: 'relative', width: 500, height: 500 }}>
-              
-              {/* Background SVG Connections */}
-              <svg width="500" height="500" style={{ position: 'absolute', top: 0, left: 0, pointerEvents: 'none', zIndex: 1 }}>
-                <defs>
-                  <linearGradient id="meshGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="rgba(45,212,191,0.8)" />
-                    <stop offset="50%" stopColor="rgba(26,74,110,0.3)" />
-                    <stop offset="100%" stopColor="rgba(45,212,191,0.8)" />
-                  </linearGradient>
-                </defs>
+            <div className="tech-stack-container">
+              <div className="tech-stack-wrap">
+                
+                {/* Background SVG Connections */}
+                <svg width="500" height="500" style={{ position: 'absolute', top: 0, left: 0, pointerEvents: 'none', zIndex: 1 }}>
+                  <defs>
+                    <linearGradient id="meshGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="rgba(148,191,206,0.8)" />
+                      <stop offset="50%" stopColor="rgba(44,82,102,0.3)" />
+                      <stop offset="100%" stopColor="rgba(56,107,130,0.8)" />
+                    </linearGradient>
+                  </defs>
+                  {(() => {
+                    const MESH_NODES = [
+                      { cx: 250, cy: 50,  item: LAYERS[0].items[0] }, // 0
+                      { cx: 200, cy: 120, item: LAYERS[0].items[1] }, // 1
+                      { cx: 300, cy: 120, item: LAYERS[0].items[2] }, // 2
+                      { cx: 150, cy: 190, item: LAYERS[0].items[3] }, // 3
+                      { cx: 250, cy: 190, item: LAYERS[0].items[4] }, // 4
+                      { cx: 350, cy: 190, item: LAYERS[0].items[5] }, // 5
+                      { cx: 100, cy: 260, item: LAYERS[1].items[0] }, // 6
+                      { cx: 200, cy: 260, item: LAYERS[1].items[1] }, // 7
+                      { cx: 300, cy: 260, item: LAYERS[1].items[2] }, // 8
+                      { cx: 400, cy: 260, item: LAYERS[2].items[0] }, // 9
+                      { cx: 150, cy: 330, item: LAYERS[2].items[1] }, // 10
+                      { cx: 250, cy: 330, item: LAYERS[2].items[2] }, // 11
+                      { cx: 350, cy: 330, item: LAYERS[2].items[3] }, // 12
+                      { cx: 250, cy: 420, item: 'CORE' }              // 13
+                    ];
+                    const MESH_LINKS = [
+                      [0,1], [0,2],
+                      [1,3], [1,4], [2,4], [2,5],
+                      [3,6], [3,7], [4,7], [4,8], [5,8], [5,9],
+                      [6,10], [7,10], [7,11], [8,11], [8,12], [9,12],
+                      [10,13], [11,13], [12,13]
+                    ];
+                    return MESH_LINKS.map((link, idx) => {
+                      const n1 = MESH_NODES[link[0]];
+                      const n2 = MESH_NODES[link[1]];
+                      return (
+                        <line 
+                          key={idx} x1={n1.cx} y1={n1.cy} x2={n2.cx} y2={n2.cy} 
+                          stroke="url(#meshGrad)" strokeWidth="1.5" 
+                          strokeDasharray="4 4"
+                          style={{ animation: 'pulse-dash 3s linear infinite' }}
+                        />
+                      );
+                    });
+                  })()}
+                </svg>
+  
+                {/* Diamond Nodes */}
                 {(() => {
                   const MESH_NODES = [
-                    { cx: 250, cy: 50,  item: LAYERS[0].items[0] }, // 0
-                    { cx: 200, cy: 120, item: LAYERS[0].items[1] }, // 1
-                    { cx: 300, cy: 120, item: LAYERS[0].items[2] }, // 2
-                    { cx: 150, cy: 190, item: LAYERS[0].items[3] }, // 3
-                    { cx: 250, cy: 190, item: LAYERS[0].items[4] }, // 4
-                    { cx: 350, cy: 190, item: LAYERS[0].items[5] }, // 5
-                    { cx: 100, cy: 260, item: LAYERS[1].items[0] }, // 6
-                    { cx: 200, cy: 260, item: LAYERS[1].items[1] }, // 7
-                    { cx: 300, cy: 260, item: LAYERS[1].items[2] }, // 8
-                    { cx: 400, cy: 260, item: LAYERS[2].items[0] }, // 9
-                    { cx: 150, cy: 330, item: LAYERS[2].items[1] }, // 10
-                    { cx: 250, cy: 330, item: LAYERS[2].items[2] }, // 11
-                    { cx: 350, cy: 330, item: LAYERS[2].items[3] }, // 12
-                    { cx: 250, cy: 420, item: 'CORE' }              // 13
+                    { cx: 250, cy: 50,  item: LAYERS[0].items[0] },
+                    { cx: 200, cy: 120, item: LAYERS[0].items[1] },
+                    { cx: 300, cy: 120, item: LAYERS[0].items[2] },
+                    { cx: 150, cy: 190, item: LAYERS[0].items[3] },
+                    { cx: 250, cy: 190, item: LAYERS[0].items[4] },
+                    { cx: 350, cy: 190, item: LAYERS[0].items[5] },
+                    { cx: 100, cy: 260, item: LAYERS[1].items[0] },
+                    { cx: 200, cy: 260, item: LAYERS[1].items[1] },
+                    { cx: 300, cy: 260, item: LAYERS[1].items[2] },
+                    { cx: 400, cy: 260, item: LAYERS[2].items[0] },
+                    { cx: 150, cy: 330, item: LAYERS[2].items[1] },
+                    { cx: 250, cy: 330, item: LAYERS[2].items[2] },
+                    { cx: 350, cy: 330, item: LAYERS[2].items[3] },
+                    { cx: 250, cy: 420, item: 'CORE' }
                   ];
-                  const MESH_LINKS = [
-                    [0,1], [0,2],
-                    [1,3], [1,4], [2,4], [2,5],
-                    [3,6], [3,7], [4,7], [4,8], [5,8], [5,9],
-                    [6,10], [7,10], [7,11], [8,11], [8,12], [9,12],
-                    [10,13], [11,13], [12,13]
-                  ];
-                  return MESH_LINKS.map((link, idx) => {
-                    const n1 = MESH_NODES[link[0]];
-                    const n2 = MESH_NODES[link[1]];
+                  return MESH_NODES.map((node) => {
+                    if (node.item === 'CORE') {
+                      return (
+                        <div key="core" className="diamond-node" style={{ 
+                          left: node.cx, top: node.cy, width: 84, height: 84, margin: '-42px 0 0 -42px',
+                          background: 'linear-gradient(135deg, var(--navy), var(--blue))',
+                          boxShadow: '0 0 40px rgba(148,191,206,0.35), inset 0 2px 10px rgba(255,255,255,0.2)', 
+                          border: '2px solid rgba(148,191,206,0.8)'
+                        }}>
+                          <div className="diamond-inner" style={{ flexDirection: 'column', color: 'var(--teal-mid)', fontWeight: 900, fontSize: 16 }}>
+                            <span style={{ color:'#fff', fontSize: 16, letterSpacing:'1px', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>Tech</span>
+                            <span style={{ fontSize: 14, letterSpacing:'1px', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>Stack</span>
+                          </div>
+                        </div>
+                      );
+                    }
+                    
+                    const tech = node.item as any;
                     return (
-                      <line 
-                        key={idx} x1={n1.cx} y1={n1.cy} x2={n2.cx} y2={n2.cy} 
-                        stroke="url(#meshGrad)" strokeWidth="1.5" 
-                        strokeDasharray="4 4"
-                        style={{ animation: 'pulse-dash 3s linear infinite' }}
-                      />
-                    );
-                  });
-                })()}
-              </svg>
-
-              {/* Diamond Nodes */}
-              {(() => {
-                const MESH_NODES = [
-                  { cx: 250, cy: 50,  item: LAYERS[0].items[0] },
-                  { cx: 200, cy: 120, item: LAYERS[0].items[1] },
-                  { cx: 300, cy: 120, item: LAYERS[0].items[2] },
-                  { cx: 150, cy: 190, item: LAYERS[0].items[3] },
-                  { cx: 250, cy: 190, item: LAYERS[0].items[4] },
-                  { cx: 350, cy: 190, item: LAYERS[0].items[5] },
-                  { cx: 100, cy: 260, item: LAYERS[1].items[0] },
-                  { cx: 200, cy: 260, item: LAYERS[1].items[1] },
-                  { cx: 300, cy: 260, item: LAYERS[1].items[2] },
-                  { cx: 400, cy: 260, item: LAYERS[2].items[0] },
-                  { cx: 150, cy: 330, item: LAYERS[2].items[1] },
-                  { cx: 250, cy: 330, item: LAYERS[2].items[2] },
-                  { cx: 350, cy: 330, item: LAYERS[2].items[3] },
-                  { cx: 250, cy: 420, item: 'CORE' }
-                ];
-                return MESH_NODES.map((node) => {
-                  if (node.item === 'CORE') {
-                    return (
-                      <div key="core" className="diamond-node" style={{ 
-                        left: node.cx, top: node.cy, width: 84, height: 84, margin: '-42px 0 0 -42px',
-                        background: 'linear-gradient(135deg, #0f1c2d, #1a4a6e)',
-                        boxShadow: '0 0 40px rgba(45,212,191,0.5), inset 0 2px 10px rgba(255,255,255,0.2)', 
-                        border: '2px solid rgba(45,212,191,0.9)'
-                      }}>
-                        <div className="diamond-inner" style={{ flexDirection: 'column', color: '#2dd4bf', fontWeight: 900, fontSize: 16 }}>
-                          <span style={{ color:'#fff', fontSize: 16, letterSpacing:'1px', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>Tech</span>
-                          <span style={{ fontSize: 14, letterSpacing:'1px', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>Stack</span>
+                      <div key={tech.name} className="diamond-node" style={{ left: node.cx, top: node.cy }} title={tech.name}>
+                        <div className="diamond-inner">
+                          <tech.Icon size={24} color={tech.color} />
                         </div>
                       </div>
                     );
-                  }
-                  
-                  const tech = node.item as any;
-                  return (
-                    <div key={tech.name} className="diamond-node" style={{ left: node.cx, top: node.cy }} title={tech.name}>
-                      <div className="diamond-inner">
-                        <tech.Icon size={24} color={tech.color} />
-                      </div>
-                    </div>
-                  );
-                });
-              })()}
-
+                  });
+                })()}
+  
+              </div>
             </div>
           </div>
 
@@ -488,13 +545,13 @@ const Hero: React.FC = () => {
         onMouseLeave={e => e.currentTarget.style.opacity = '0.6'}
         onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
         >
-          <span style={{ fontSize:10, fontWeight:800, letterSpacing:'.16em', color:'#1a4a6e', textTransform:'uppercase' }}>
+          <span style={{ fontSize:10, fontWeight:800, letterSpacing:'.16em', color:'var(--navy)', textTransform:'uppercase' }}>
             Scroll
           </span>
-          <div style={{ position:'relative', width:2, height:40, background:'rgba(26,74,110,0.1)', borderRadius:2, overflow:'hidden' }}>
+          <div style={{ position:'relative', width:2, height:40, background:'var(--blue-dim)', borderRadius:2, overflow:'hidden' }}>
             <div style={{ 
               position:'absolute', top:0, left:0, width:'100%', height:'50%', 
-              background:'linear-gradient(to bottom, #2dd4bf, #1a4a6e)',
+              background:'linear-gradient(to bottom, var(--teal), var(--blue))',
               animation: 'scroll-down 2s ease-in-out infinite' 
             }} />
           </div>

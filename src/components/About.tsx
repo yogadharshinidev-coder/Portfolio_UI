@@ -1,10 +1,10 @@
 import React from 'react';
 import { HiCheckBadge, HiRocketLaunch } from 'react-icons/hi2';
-import yogaImg from '../assets/Images/yoga.png';
+import yogaImg from '../assets/Images/yoga.jpeg';
 
 const CARDS = [
-  { Icon: HiRocketLaunch, title: 'Full Stack',     desc: 'End-to-end development with .NET & React',  accent: '#0f1c2d', bg: '#f1f5f9' },
-  { Icon: HiCheckBadge,  title: 'API Integration',  desc: 'RESTful APIs with EF Core & LINQ',          accent: '#2dd4bf', bg: '#f0fffe' },
+  { Icon: HiRocketLaunch, title: 'Full Stack',     desc: 'End-to-end development with .NET & React',  accent: 'var(--navy)', bg: 'var(--blue-dim)' },
+  { Icon: HiCheckBadge,  title: 'API Integration',  desc: 'RESTful APIs with EF Core & LINQ',          accent: 'var(--teal)', bg: 'var(--teal-dim)' },
 ];
 
 const About: React.FC = () => (
@@ -18,24 +18,24 @@ const About: React.FC = () => (
         <div className="divider" />
       </div>
 
-      <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(400px, 1fr))', gap:64, alignItems:'center' }}>
+      <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(280px, 1fr))', gap:64, alignItems:'center' }}>
 
         {/* Left - Text and remaining cards */}
         <div className="reveal-left" style={{ display:'flex', flexDirection:'column', gap:20 }}>
           <p style={{ fontSize:16, color:'#4b5563', lineHeight:1.8 }}>
             I'm a dedicated{' '}
-            <strong style={{ color:'#0f1c2d', fontWeight:700 }}>Full Stack Developer</strong>{' '}
+            <strong style={{ color:'var(--navy)', fontWeight:700 }}>Full Stack Developer</strong>{' '}
             based in Erode, Tamil Nadu, passionate about building clean, scalable, and impactful enterprise software.
           </p>
           <p style={{ fontSize:15, color:'#6b7280', lineHeight:1.78 }}>
             I specialise in crafting responsive UIs with{' '}
-            <strong style={{ color:'#1a4a6e' }}>React.js</strong> and building robust APIs with{' '}
-            <strong style={{ color:'#1a4a6e' }}>ASP.NET Core</strong>. With hands-on experience across the complete SDLC,
+            <strong style={{ color:'var(--blue)' }}>React.js</strong> and building robust APIs with{' '}
+            <strong style={{ color:'var(--blue)' }}>ASP.NET Core</strong>. With hands-on experience across the complete SDLC,
             I value collaboration, clean code, and continuous growth.
           </p>
 
           {/* Remaining 2 Cards */}
-          <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(200px, 1fr))', gap:16, marginTop: 8 }}>
+          <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(180px, 1fr))', gap:16, marginTop: 8 }}>
             {CARDS.map(({ Icon, title, desc, accent, bg }) => (
               <div key={title} className="card" style={{ padding:'20px 16px', display:'flex', flexDirection:'column', gap:12 }}>
                 <div style={{
@@ -45,7 +45,7 @@ const About: React.FC = () => (
                   <Icon size={20} />
                 </div>
                 <div>
-                  <h4 style={{ fontSize:14, fontWeight:800, color:'#0f1c2d', marginBottom:4 }}>{title}</h4>
+                  <h4 style={{ fontSize:14, fontWeight:800, color:'var(--navy)', marginBottom:4 }}>{title}</h4>
                   <p style={{ fontSize:12, color:'#6b7280', lineHeight:1.5 }}>{desc}</p>
                 </div>
               </div>
@@ -63,9 +63,9 @@ const About: React.FC = () => (
           <div style={{ display:'flex', flexWrap:'wrap', gap:12, paddingTop:12 }}>
             <a href="mailto:yogadharshinidev@gmail.com" style={{
               padding:'11px 26px', borderRadius:999,
-              background:'linear-gradient(135deg,#0f1c2d,#1a4a6e)',
+              background:'linear-gradient(135deg,var(--navy),var(--blue))',
               color:'#fff', fontSize:13, fontWeight:700, textDecoration:'none',
-              boxShadow:'0 4px 16px rgba(15,28,45,.2)', transition:'all .22s',
+              boxShadow:'0 4px 16px var(--blue-dim)', transition:'all .22s',
             }}
             onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform='translateY(-2px)'; }}
             onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform=''; }}
@@ -74,10 +74,10 @@ const About: React.FC = () => (
             </a>
             <a href="tel:9361352274" style={{
               padding:'11px 26px', borderRadius:999,
-              border:'1.5px solid #0f1c2d', color:'#0f1c2d',
+              border:'1.5px solid var(--navy)', color:'var(--navy)',
               fontSize:13, fontWeight:700, textDecoration:'none', transition:'all .22s',
             }}
-            onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background='#f1f5f9'; el.style.transform='translateY(-2px)'; }}
+            onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background='var(--blue-dim)'; el.style.transform='translateY(-2px)'; }}
             onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background='transparent'; el.style.transform=''; }}
             >
               +91 9361352274
@@ -88,8 +88,9 @@ const About: React.FC = () => (
         {/* Right – Profile Image */}
         <div className="reveal-right sd-2" style={{ display:'flex', justifyContent:'center', alignItems:'center' }}>
           <div style={{
-            width: '100%', maxWidth: 380, aspectRatio: '1 / 1', borderRadius: '50%',
-            boxShadow: '0 20px 48px rgba(15,28,45,0.12)',
+            width: '100%', maxWidth: 380, aspectRatio: '1 / 1', borderRadius: 24,
+            boxShadow: '0 20px 48px rgba(38,71,89,0.15), 0 0 0 1px rgba(38,71,89,0.05)',
+            border: '8px solid #ffffff',
             overflow: 'hidden'
           }}>
             <img 

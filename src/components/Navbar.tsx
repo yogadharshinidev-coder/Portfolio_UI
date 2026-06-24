@@ -48,41 +48,41 @@ const Navbar: React.FC = () => {
         }
         .nav-link::before {
           content: ''; position: absolute; inset: 0; border-radius: 999px;
-          background: linear-gradient(90deg, rgba(45,212,191,0.06), rgba(26,74,110,0.04));
+          background: linear-gradient(90deg, var(--teal-dim), var(--blue-dim));
           opacity: 0; z-index: -1;
           transform: translateY(6px) scale(0.98); transition: all .28s cubic-bezier(0.22, 1, 0.36, 1);
         }
-        .nav-link:hover { color: #0f1c2d; transform: translateY(-3px); }
+        .nav-link:hover { color: var(--navy); transform: translateY(-3px); }
         .nav-link:hover::before { opacity: 1; transform: translateY(0) scale(1); }
-        .nav-link.nav-active { color: #083344; font-weight: 800; }
-        .nav-link.nav-active::before { background: linear-gradient(90deg, rgba(45,212,191,0.14), rgba(26,74,110,0.08)); opacity: 1; transform: scale(1); }
+        .nav-link.nav-active { color: var(--navy); font-weight: 800; }
+        .nav-link.nav-active::before { background: linear-gradient(90deg, var(--teal-dim), var(--blue-dim)); opacity: 1; transform: scale(1); }
 
         .nav-cta {
           position: relative;
           display: inline-flex; align-items: center; justify-content: center;
           gap: 10px; padding: 12px 26px; border-radius: 999px;
-          background: linear-gradient(135deg, #06b6d4, #0f1724);
+          background: linear-gradient(135deg, var(--teal), var(--navy));
           color: #fff; font-size: 14px; font-weight: 800;
           text-decoration: none; letter-spacing: .04em;
-          box-shadow: 0 8px 28px rgba(6,182,212,0.12);
+          box-shadow: 0 8px 28px var(--teal-dim);
           transition: transform .25s ease, box-shadow .25s ease;
           white-space: nowrap; overflow: hidden;
         }
         .nav-cta .arrow { opacity: 0.9; transform: translateX(0); transition: transform .22s ease; }
-        .nav-cta:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 14px 40px rgba(6,182,212,0.18); }
+        .nav-cta:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 14px 40px var(--teal-border); }
         .nav-cta:hover .arrow { transform: translateX(6px); }
 
         .logo-avatar {
           border-radius: 50%; display:flex; align-items:center; justify-content:center;
           transition: transform .22s cubic-bezier(0.22, 1, 0.36, 1);
           /* simple single round gradient, no outer ring or shadow */
-          background: radial-gradient(circle at 30% 25%, #2dd4bf 0%, #06b6d4 45%, #0f4a6e 100%);
+          background: radial-gradient(circle at 30% 25%, var(--teal-mid) 0%, var(--teal) 45%, var(--navy) 100%);
         }
         .logo-avatar:hover { transform: scale(1.04); }
         .logo-avatar .initial { color: #fff; }
         .logo-name { line-height:1.1; }
-        .logo-title { font-family: 'Outfit, sans-serif'; font-weight:900; font-size:15px; color:#081426; margin:0; letter-spacing:-0.02em; }
-        .logo-subtitle { font-size:11px; font-weight:800; color:#2dd4bf; margin:0; text-transform:uppercase; letter-spacing:.08em; }
+        .logo-title { font-family: 'Outfit, sans-serif'; font-weight:900; font-size:15px; color:var(--navy); margin:0; letter-spacing:-0.02em; }
+        .logo-subtitle { font-size:11px; font-weight:800; color:var(--teal); margin:0; text-transform:uppercase; letter-spacing:.08em; }
 
         @media (max-width: 900px) {
           .nav-desktop { display: none !important; }
@@ -93,25 +93,37 @@ const Navbar: React.FC = () => {
           .nav-toggle  { display: none !important; }
           .nav-mobile  { display: none !important; }
         }
+        @media (max-width: 360px) {
+          .logo-title { font-size: 13px !important; }
+          .logo-subtitle { font-size: 9px !important; }
+        }
       `}</style>
 
       <header style={{
-        position: 'fixed', top: scrolled ? 16 : 0, left: 0, right: 0, zIndex: 200,
-        margin: '0 auto', width: '100%', maxWidth: scrolled ? '1200px' : '100%',
-        padding: scrolled ? '0 16px' : '0 4vw',
-        transition: 'all .4s cubic-bezier(0.25, 0.8, 0.25, 1)',
-      }}>
+        position: 'fixed', top: 0, left: 0, right: 0, zIndex: 200,
+        width: '100%',
+        background: scrolled ? 'rgba(255, 255, 255, 0.95)' : 'transparent',
+        backdropFilter: scrolled ? 'blur(16px)' : 'none',
+        WebkitBackdropFilter: scrolled ? 'blur(16px)' : 'none',
+        borderBottom: scrolled ? '1px solid rgba(38,71,89,0.1)' : '1px solid transparent',
+        boxShadow: scrolled ? '0 8px 32px rgba(38,71,89,0.06)' : 'none',
+        padding: scrolled ? '12px 4vw' : '20px 4vw',
+        transition: 'all .3s ease',
+        '--nav-link-color': 'var(--navy)',
+        '--nav-link-hover': 'var(--blue)',
+        '--nav-link-active': 'var(--navy)',
+        '--nav-link-bg': 'linear-gradient(90deg, var(--teal-dim), var(--blue-dim))',
+        '--nav-cta-bg': 'linear-gradient(135deg, var(--teal), var(--navy))',
+        '--nav-cta-color': '#ffffff',
+        '--nav-cta-shadow': scrolled ? '0 8px 28px var(--teal-dim)' : 'none',
+        '--nav-cta-border': '1.5px solid transparent',
+        '--nav-cta-hover-shadow': '0 14px 40px var(--teal-border)',
+        '--nav-cta-hover-bg': 'linear-gradient(135deg, var(--blue), var(--navy))',
+        '--nav-cta-hover-border-color': 'transparent',
+      } as React.CSSProperties}>
         <div style={{
-          width: '100%',
-          background: scrolled ? 'rgba(255,255,255,0.65)' : 'transparent',
-          backdropFilter: scrolled ? 'blur(24px)' : 'none',
-          WebkitBackdropFilter: scrolled ? 'blur(24px)' : 'none',
-          borderRadius: scrolled ? 999 : 0,
-          border: scrolled ? '1px solid rgba(255,255,255,0.8)' : '1px solid transparent',
-          boxShadow: scrolled ? '0 12px 32px rgba(15,28,45,.06), inset 0 0 0 1px rgba(255,255,255,0.5)' : 'none',
-          padding: scrolled ? '6px 12px 6px 20px' : '20px 0',
+          width: '100%', maxWidth: '1440px', margin: '0 auto',
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-          transition: 'all .4s cubic-bezier(0.25, 0.8, 0.25, 1)',
         }}>
 
           {/* ── Logo ── */}
@@ -126,8 +138,8 @@ const Navbar: React.FC = () => {
               }}>Y</div>
             </div>
             <div className="logo-name" style={{ transition: 'transform .4s', transform: scrolled ? 'scale(0.95)' : 'scale(1)', transformOrigin: 'left center', marginLeft: 8 }}>
-              <p className="logo-title">Yogadharshini VR</p>
-              <p className="logo-subtitle">Full Stack Developer</p>
+              <p className="logo-title" style={{ color: 'var(--navy)', transition: 'color .3s' }}>Yogadharshini VR</p>
+              <p className="logo-subtitle" style={{ color: 'var(--teal)', transition: 'color .3s' }}>Full Stack Developer</p>
             </div>
           </a>
 
@@ -150,9 +162,12 @@ const Navbar: React.FC = () => {
             onClick={() => setOpen(o => !o)}
             className="nav-toggle"
             style={{ 
-              background:'rgba(15,28,45,0.05)', border:'none', cursor:'pointer', 
-              padding:10, borderRadius: '50%', color:'#0f1c2d', display:'none',
-              transition: 'background .2s'
+              background: 'rgba(38,71,89,0.06)', 
+              border:'none', cursor:'pointer', 
+              padding:10, borderRadius: '50%', 
+              color: 'var(--navy)', 
+              display:'none',
+              transition: 'all .2s'
             }}
             aria-label="Toggle menu"
           >
@@ -189,8 +204,8 @@ const Navbar: React.FC = () => {
                 style={{
                   padding:'14px 18px', borderRadius:14,
                   fontSize:15, fontWeight:700, textDecoration:'none',
-                  color: active === l.id ? '#1a4a6e' : '#4b5563',
-                  background: active === l.id ? 'rgba(45,212,191,.15)' : 'transparent',
+                  color: active === l.id ? 'var(--blue)' : '#4b5563',
+                  background: active === l.id ? 'var(--teal-dim)' : 'transparent',
                   transition:'all .2s',
                 }}
               >{l.label}</a>
@@ -200,8 +215,8 @@ const Navbar: React.FC = () => {
               style={{
                 marginTop:16, padding:'16px', borderRadius:16,
                 fontSize:15, fontWeight:800, textDecoration:'none', textAlign:'center',
-                background:'linear-gradient(135deg,#0f1c2d,#1a4a6e)', color:'#fff',
-                boxShadow:'0 8px 24px rgba(15,28,45,.2)'
+                background:'linear-gradient(135deg,var(--navy),var(--blue))', color:'#fff',
+                boxShadow:'0 8px 24px var(--blue-dim)'
               }}
             >Hire Me →</a>
           </div>

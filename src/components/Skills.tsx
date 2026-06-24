@@ -77,7 +77,7 @@ const Skills: React.FC = () => {
           opacity: 0;
           transition: opacity .25s;
         }
-        .skill-card:hover { border-color: rgba(45,212,191,.35); box-shadow: 0 10px 36px rgba(45,212,191,.12); transform: translateY(-5px); }
+        .skill-card:hover { border-color: var(--border-hi); box-shadow: 0 10px 36px var(--teal-dim); transform: translateY(-5px); }
         .skill-card:hover::before { opacity: 1; }
 
         .skill-icon-box {
@@ -87,9 +87,9 @@ const Skills: React.FC = () => {
           transition: background .25s, border-color .25s, box-shadow .25s;
         }
         .skill-card:hover .skill-icon-box {
-          background: #f0fffe;
-          border-color: rgba(45,212,191,.35);
-          box-shadow: 0 4px 14px rgba(45,212,191,.15);
+          background: var(--teal-dim);
+          border-color: var(--border-hi);
+          box-shadow: 0 4px 14px var(--teal-dim);
         }
 
         .filter-btn {
@@ -100,11 +100,11 @@ const Skills: React.FC = () => {
           letter-spacing: .02em; white-space: nowrap;
         }
         .filter-btn:not(.f-on) { background: #fff; color: #6b7280; }
-        .filter-btn:not(.f-on):hover { border-color: rgba(45,212,191,.4); color: #2dd4bf; background: rgba(45,212,191,.05); }
+        .filter-btn:not(.f-on):hover { border-color: var(--border-hi); color: var(--teal); background: var(--teal-dim); }
         .filter-btn.f-on {
-          background: linear-gradient(135deg, #0f1c2d, #1a4a6e);
+          background: linear-gradient(135deg, var(--navy), var(--blue));
           color: #fff; border-color: transparent;
-          box-shadow: 0 4px 18px rgba(15,28,45,.22);
+          box-shadow: 0 4px 18px var(--blue-dim);
         }
       `}</style>
 
@@ -155,7 +155,7 @@ const Skills: React.FC = () => {
               style={{
                 width: 140,
                 ['--card-c1' as string]: color,
-                ['--card-c2' as string]: '#2dd4bf',
+                ['--card-c2' as string]: 'var(--teal)',
                 animation: 'scaleUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards',
                 animationDelay: `${i * 0.06}s`,
                 opacity: 0,
@@ -165,7 +165,7 @@ const Skills: React.FC = () => {
                 <Icon size={26} style={{ color }} />
               </div>
               <div>
-                <p style={{ fontSize: 13, fontWeight: 700, color: '#0f1c2d', lineHeight: 1.3 }}>
+                <p style={{ fontSize: 13, fontWeight: 700, color: 'var(--navy)', lineHeight: 1.3 }}>
                   {name}
                 </p>
               </div>

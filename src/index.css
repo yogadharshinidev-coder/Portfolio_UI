@@ -3,20 +3,20 @@
 
 /* ─── Design Tokens ─── */
 :root {
-  --navy:        #0f1c2d;
-  --blue:        #1a4a6e;
-  --teal:        #2dd4bf;
-  --teal-mid:    #0ea5e9;
-  --teal-dim:    rgba(45,212,191,.10);
-  --teal-border: rgba(45,212,191,.25);
-  --blue-dim:    rgba(26,74,110,.08);
+  --navy:        #264759;
+  --blue:        #2C5266;
+  --teal:        #386B82;
+  --teal-mid:    #94BFCE;
+  --teal-dim:    rgba(148, 191, 206, 0.15);
+  --teal-border: rgba(148, 191, 206, 0.3);
+  --blue-dim:    rgba(44, 82, 102, 0.08);
   --bg:          #ffffff;
-  --bg-alt:      #f8fafc;
-  --text-dark:   #0f1c2d;
+  --bg-alt:      #ffffff;
+  --text-dark:   #264759;
   --text-body:   #4b5563;
-  --text-muted:  #9ca3af;
+  --text-muted:  #6b7d88;
   --border:      #e5e7eb;
-  --border-hi:   rgba(45,212,191,.3);
+  --border-hi:   rgba(148, 191, 206, 0.5);
 }
 
 /* ─── Reset ─── */

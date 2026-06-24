@@ -4,9 +4,9 @@ import { HiEnvelope, HiPhone, HiMapPin, HiPaperAirplane, HiCheckCircle } from 'r
 interface ContactItem { icon: React.ElementType; label: string; value: string; href: string; accent: string; }
 
 const CONTACT_ITEMS: ContactItem[] = [
-  { icon: HiEnvelope, label:'Email',    value:'yogadharshinidev@gmail.com',  href:'mailto:yogadharshinidev@gmail.com', accent:'#0f1c2d' },
-  { icon: HiPhone,    label:'Phone',    value:'+91 9361352274',               href:'tel:9361352274',                    accent:'#1a4a6e' },
-  { icon: HiMapPin,   label:'Location', value:'Erode, Tamil Nadu, India',     href:'#',                                 accent:'#2dd4bf' },
+  { icon: HiEnvelope, label:'Email',    value:'yogadharshinidev@gmail.com',  href:'mailto:yogadharshinidev@gmail.com', accent:'var(--navy)' },
+  { icon: HiPhone,    label:'Phone',    value:'+91 9361352274',               href:'tel:9361352274',                    accent:'var(--blue)' },
+  { icon: HiMapPin,   label:'Location', value:'Erode, Tamil Nadu, India',     href:'#',                                 accent:'var(--teal)' },
 ];
 
 const Contact: React.FC = () => {
@@ -43,15 +43,15 @@ const Contact: React.FC = () => {
 
   const inputBase: React.CSSProperties = {
     width:'100%', padding:'12px 16px', borderRadius:10,
-    border:'1.5px solid #e5e7eb', fontSize:14, color:'#0f1c2d',
+    border:'1.5px solid #e5e7eb', fontSize:14, color:'var(--navy)',
     background:'#fafafa', outline:'none',
     transition:'border-color .2s, box-shadow .2s',
     fontFamily:'Outfit, sans-serif',
   };
 
   const focus = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    e.target.style.borderColor='#2dd4bf';
-    e.target.style.boxShadow='0 0 0 3px rgba(45,212,191,.12)';
+    e.target.style.borderColor='var(--teal)';
+    e.target.style.boxShadow='0 0 0 3px var(--teal-dim)';
     e.target.style.background='#fff';
   };
   const blur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -113,7 +113,7 @@ const Contact: React.FC = () => {
                   <p style={{ fontSize:10, fontWeight:700, color:'#9ca3af', textTransform:'uppercase', letterSpacing:'.1em', marginBottom:3 }}>
                     {label}
                   </p>
-                  <p style={{ fontSize:13.5, fontWeight:700, color:'#0f1c2d', whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis' }}>
+                  <p style={{ fontSize:13.5, fontWeight:700, color:'var(--navy)', whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis' }}>
                     {value}
                   </p>
                 </div>
@@ -125,10 +125,10 @@ const Contact: React.FC = () => {
           {/* Right form */}
           <div className="reveal-right sd-2" style={{
             background:'#fff', borderRadius:18,
-            border:'1.5px solid #e5e7eb', padding:'32px 32px',
+            border:'1.5px solid #e5e7eb', padding:'clamp(16px, 5vw, 32px)',
             boxShadow:'0 4px 24px rgba(15,28,45,.05)',
           }}>
-            <h3 style={{ fontFamily:'Outfit,sans-serif', fontWeight:800, fontSize:18, color:'#0f1c2d', marginBottom:24 }}>
+            <h3 style={{ fontFamily:'Outfit,sans-serif', fontWeight:800, fontSize:18, color:'var(--navy)', marginBottom:24 }}>
               Send a Message
             </h3>
 
@@ -176,19 +176,19 @@ const Contact: React.FC = () => {
                   cursor: (loading || sent) ? 'default' : 'pointer',
                   fontSize:14, fontWeight:700, color:'#fff',
                   background: sent
-                    ? 'linear-gradient(135deg,#2dd4bf,#0ea5e9)'
+                    ? 'linear-gradient(135deg,var(--teal),var(--teal-mid))'
                     : loading 
                       ? '#9ca3af' 
-                      : 'linear-gradient(135deg,#0f1c2d,#1a4a6e)',
+                      : 'linear-gradient(135deg,var(--navy),var(--blue))',
                   boxShadow: sent
-                    ? '0 6px 20px rgba(45,212,191,.28)'
+                    ? '0 6px 20px var(--teal-border)'
                     : loading 
                       ? 'none' 
-                      : '0 6px 20px rgba(15,28,45,.2)',
+                      : '0 6px 20px var(--blue-dim)',
                   transition:'all .25s',
                 }}
-                onMouseEnter={e => { if (!sent && !loading) { (e.currentTarget as HTMLElement).style.background='linear-gradient(135deg,#1a4a6e,#2dd4bf)'; }}}
-                onMouseLeave={e => { if (!sent && !loading) { (e.currentTarget as HTMLElement).style.background='linear-gradient(135deg,#0f1c2d,#1a4a6e)'; }}}
+                onMouseEnter={e => { if (!sent && !loading) { (e.currentTarget as HTMLElement).style.background='linear-gradient(135deg,var(--blue),var(--teal))'; }}}
+                onMouseLeave={e => { if (!sent && !loading) { (e.currentTarget as HTMLElement).style.background='linear-gradient(135deg,var(--navy),var(--blue))'; }}}
               >
                 {loading 
                   ? 'Sending...'
