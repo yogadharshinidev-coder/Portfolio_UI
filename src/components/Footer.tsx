@@ -182,9 +182,7 @@ const Footer: React.FC = () => (
         display: 'flex', flexWrap: 'wrap',
         alignItems: 'center', justifyContent: 'space-between', gap: 12,
       }}>
-        <p style={{ fontSize: 12, color: '#94a3b8' }}>
-          © {new Date().getFullYear()} Yogadharshini VR. All rights reserved.
-        </p>
+        
         <p style={{ fontSize: 12, color: '#94a3b8' }}>
           Full Stack Developer · Erode, Tamil Nadu
         </p>

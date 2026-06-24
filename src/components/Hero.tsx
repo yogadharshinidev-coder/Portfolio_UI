@@ -535,34 +535,6 @@ const Hero: React.FC = () => {
 
         </div>
 
-        {/* Scroll hint */}
-        <div style={{
-          position:'absolute', bottom:32, left:'50%', transform:'translateX(-50%)',
-          display:'flex', flexDirection:'column', alignItems:'center', gap:8,
-          opacity: 0.6, transition: 'opacity 0.3s', cursor: 'pointer'
-        }}
-        onMouseEnter={e => e.currentTarget.style.opacity = '1'}
-        onMouseLeave={e => e.currentTarget.style.opacity = '0.6'}
-        onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
-        >
-          <span style={{ fontSize:10, fontWeight:800, letterSpacing:'.16em', color:'var(--navy)', textTransform:'uppercase' }}>
-            Scroll
-          </span>
-          <div style={{ position:'relative', width:2, height:40, background:'var(--blue-dim)', borderRadius:2, overflow:'hidden' }}>
-            <div style={{ 
-              position:'absolute', top:0, left:0, width:'100%', height:'50%', 
-              background:'linear-gradient(to bottom, var(--teal), var(--blue))',
-              animation: 'scroll-down 2s ease-in-out infinite' 
-            }} />
-          </div>
-          <style>{`
-            @keyframes scroll-down {
-              0% { transform: translateY(-100%); opacity: 0; }
-              50% { opacity: 1; }
-              100% { transform: translateY(200%); opacity: 0; }
-            }
-          `}</style>
-        </div>
       </section>
     </>
   );

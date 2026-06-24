@@ -75,8 +75,8 @@ const Navbar: React.FC = () => {
         .logo-avatar {
           border-radius: 50%; display:flex; align-items:center; justify-content:center;
           transition: transform .22s cubic-bezier(0.22, 1, 0.36, 1);
-          /* simple single round gradient, no outer ring or shadow */
-          background: radial-gradient(circle at 30% 25%, var(--teal-mid) 0%, var(--teal) 45%, var(--navy) 100%);
+          /* premium dark navy gradient background */
+          background: radial-gradient(circle at 30% 25%, var(--navy) 0%, #172c38 60%, #0f1c24 100%);
         }
         .logo-avatar:hover { transform: scale(1.04); }
         .logo-avatar .initial { color: #fff; }
