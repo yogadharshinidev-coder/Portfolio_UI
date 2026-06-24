@@ -178,7 +178,7 @@ const Navbar: React.FC = () => {
         {/* ── Mobile Drawer ── */}
         <div className="nav-mobile" style={{
           position: 'absolute', top: '100%', left: 16, right: 16, marginTop: 12,
-          maxHeight: open ? 500 : 0, overflow:'hidden',
+          maxHeight: open ? 600 : 0, overflow:'hidden',
           transition:'all .4s cubic-bezier(0.25, 0.8, 0.25, 1)',
           background: 'rgba(255,255,255,0.95)',
           backdropFilter: 'blur(24px)',
