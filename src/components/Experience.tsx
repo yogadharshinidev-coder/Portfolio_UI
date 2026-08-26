@@ -12,11 +12,9 @@ const EXPERIENCES = [
     accentBg: 'var(--blue-dim)',
     points: [
       'Designed and developed scalable ERP web applications using React.js, TypeScript, and ASP.NET Core Web API with Entity Framework Core.',
-      'Built and maintained Express.js middleware services for API orchestration, request handling, and seamless frontend-backend integration.',
       'Developed reusable, type-safe React.js components and custom hooks to deliver responsive, enterprise-grade UIs with TypeScript.',
       'Built scalable RESTful APIs leveraging LINQ optimisation, asynchronous operations, and relational data mappings.',
       'Involved in the complete SDLC — requirement analysis, system design, development, testing, code reviews, and deployment.',
-      'Participated in Agile ceremonies including stand-ups, sprint planning, retrospectives, and regression testing.',
     ],
     tags: ['React.js', 'TypeScript', 'Express.js', 'ASP.NET Core', 'EF Core', 'REST API', 'SQL Server', 'Agile'],
   },

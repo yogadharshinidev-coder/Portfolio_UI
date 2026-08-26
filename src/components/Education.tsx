@@ -1,8 +1,6 @@
 import React from 'react';
 import { HiAcademicCap, HiMapPin, HiCalendar, HiStar } from 'react-icons/hi2';
 
-const SUBJECTS = ['Commerce', 'Business Management', 'Accounting', 'Economics', 'Statistics'];
-
 const Education: React.FC = () => (
   <section id="education" className="section" style={{ background:'#fff' }}>
     <div className="wrap">
@@ -79,10 +77,6 @@ const Education: React.FC = () => (
               </div>
             </div>
 
-            {/* Subjects */}
-            <div style={{ display:'flex', flexWrap:'wrap', gap:6 }}>
-              {SUBJECTS.map(s => <span key={s} className="pill">{s}</span>)}
-            </div>
           </div>
         </div>
       </div>

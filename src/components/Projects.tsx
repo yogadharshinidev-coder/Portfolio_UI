@@ -1,6 +1,6 @@
 import React from 'react';
-import { HiCheckCircle, HiArrowTopRightOnSquare, HiCircleStack, HiArchiveBox, HiDocumentCheck } from 'react-icons/hi2';
-import { SiReact, SiTypescript, SiDotnet, SiBootstrap } from 'react-icons/si';
+import { HiCheckCircle, HiArrowTopRightOnSquare, HiArchiveBox, HiDocumentCheck } from 'react-icons/hi2';
+import { SiReact, SiTypescript } from 'react-icons/si';
 import { TbBrandReactNative } from 'react-icons/tb';
 
 const PROJECTS = [
@@ -31,18 +31,17 @@ const PROJECTS = [
     icon:     HiDocumentCheck,
     accent:   'var(--blue)',
     accentBg: 'var(--teal-dim)',
-    desc: 'A sophisticated certification auditing & lifecycle management platform with expiry tracking, renewal workflows, and CBS system integration for regulatory compliance.',
+    desc: 'A certification management platform that brings the complete certification process into one system, from requests and approvals through certificate creation and renewal.',
     highlights: [
-      'ASP.NET Core MVC with Entity Framework Core for the complete certification lifecycle',
-      'CBS system integration for seamless data exchange and audit trails',
-      'Expiry tracking with automated renewal workflow notifications',
-      'Responsive Bootstrap 5 interface aligned with enterprise design standards',
+      'Built a responsive React.js interface for managing certification requests, approvals, certificates, and renewals',
+      'Tracked certificate status and expiry dates with 45-day alerts to support timely renewal actions',
+      'Connected certifications with billing and expenses to link each bill and related cost to the correct certification',
+      'Used TanStack Query for efficient server-state management, caching, and API data synchronisation',
     ],
     stack: [
-      { name:'ASP.NET Core MVC', Icon: SiDotnet,      color:'#512bd4' },
-      { name:'Entity Framework', Icon: HiCircleStack,  color:'#1a4a6e' },
-      { name:'Bootstrap 5',      Icon: SiBootstrap,    color:'#7952b3' },
-      { name:'Oracle DB',        Icon: HiCircleStack,  color:'#f80000' },
+      { name:'React.js',       Icon: SiReact,           color:'#61dafb' },
+      { name:'TypeScript',     Icon: SiTypescript,     color:'#3178c6' },
+      { name:'TanStack Query', Icon: TbBrandReactNative, color:'#ff4154' },
     ],
   },
 ];

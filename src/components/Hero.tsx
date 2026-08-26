@@ -11,7 +11,7 @@ import {
 /* ─── Roles for typewriter ─── */
 const ROLES = [
   'Full Stack Developer',
-  'React.js & Express.js Dev',
+  'React.js Developer',
   'Asp.Net Developer',
 ];
 
