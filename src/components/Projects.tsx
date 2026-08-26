@@ -148,10 +148,10 @@ const Projects: React.FC = () => (
         ))}
       </div>
 
-      <p style={{ textAlign:'center', color:'#9ca3af', fontSize:13, marginTop:36 }}>
+      {/* <p style={{ textAlign:'center', color:'#9ca3af', fontSize:13, marginTop:36 }}>
         All projects developed within enterprise ERP systems at{' '}
         <span style={{ color:'var(--blue)', fontWeight:600 }}>Navanala Technologies Private Limited</span>
-      </p>
+      </p> */}
     </div>
   </section>
 );
