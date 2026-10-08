@@ -1,6 +1,6 @@
 import React from 'react';
 import { HiCheckBadge, HiRocketLaunch } from 'react-icons/hi2';
-import yogaImg from '../assets/Images/yoga.jpeg';
+import yogaImg from '../assets/Images/yoga.jpg.jpeg';
 
 const CARDS = [
   { Icon: HiRocketLaunch, title: 'Full Stack',     desc: 'End-to-end development with .NET & React',  accent: 'var(--navy)', bg: 'var(--blue-dim)' },
@@ -88,17 +88,16 @@ const About: React.FC = () => (
         {/* Right – Profile Image */}
         <div className="reveal-right sd-2" style={{ display:'flex', justifyContent:'center', alignItems:'center' }}>
           <div style={{
-            width: '100%', maxWidth: 380, aspectRatio: '1 / 1', borderRadius: 24,
-            boxShadow: '0 20px 48px rgba(38,71,89,0.15), 0 0 0 1px rgba(38,71,89,0.05)',
-            border: '8px solid #ffffff',
+            width: '100%', maxWidth: 380, borderRadius: 24,
+            boxShadow: '0 20px 48px rgba(38,71,89,0.15), 0 0 0 1px rgba(56,107,130,0.12)',
+            border: '8px solid #dff2f5',
             overflow: 'hidden'
           }}>
             <img 
               src={yogaImg} 
-              alt="Profile" 
+              alt="Portrait photo" 
               style={{
-                width: '100%', height: '100%',
-                objectFit: 'cover', objectPosition: 'center',
+                display: 'block', width: '100%', height: 'auto',
                 imageRendering: '-webkit-optimize-contrast'
               }} 
             />
