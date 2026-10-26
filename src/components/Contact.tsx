@@ -21,19 +21,28 @@ const Contact: React.FC = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      await fetch("https://formsubmit.co/ajax/yogadharshinidev@gmail.com", {
+      const res = await fetch("https://formsubmit.co/ajax/yogadharshinidev@gmail.com", {
         method: "POST",
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
           name: form.name,
           email: form.email,
-          subject: form.subject,
-          message: form.message
+          subject: form.subject || 'New Portfolio Enquiry',
+          message: form.message,
+          _subject: `Portfolio Enquiry: ${form.subject || 'New Message'} - from ${form.name}`,
+          _replyto: form.email,
+          _captcha: 'false',
+          _template: 'table',
         })
       });
-      setSent(true);
-      setForm({ name:'', email:'', subject:'', message:'' });
-      setTimeout(() => setSent(false), 4000);
+      const data = await res.json();
+      if (data.success) {
+        setSent(true);
+        setForm({ name:'', email:'', subject:'', message:'' });
+        setTimeout(() => setSent(false), 4000);
+      } else {
+        console.error('FormSubmit error:', data);
+      }
     } catch (err) {
       console.error(err);
     } finally {
