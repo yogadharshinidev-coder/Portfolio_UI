@@ -28,7 +28,6 @@ const SKILLS: Skill[] = [
   { name: 'C#',                Icon: SiSharp,             color: '#9b59b6', category: 'Backend'   },
   { name: 'ASP.NET Core',      Icon: SiDotnet,            color: '#512bd4', category: 'Backend'   },
   { name: 'Entity Framework',  Icon: HiCircleStack,       color: '#7c5cbf', category: 'Backend'   },
-  { name: 'Express.js',        Icon: HiCodeBracket,       color: '#0f1c2d', category: 'Backend'   },
   { name: 'RESTful API',       Icon: HiCodeBracket,       color: '#2dd4bf', category: 'Backend'   },
   { name: 'MVC',               Icon: HiCpuChip,           color: '#1a4a6e', category: 'Backend'   },
   { name: 'SQL Server',        Icon: HiCircleStack,       color: '#cc2927', category: 'Database'  },

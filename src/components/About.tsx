@@ -61,7 +61,7 @@ const About: React.FC = () => (
 
           {/* Buttons */}
           <div style={{ display:'flex', flexWrap:'wrap', gap:12, paddingTop:12 }}>
-            <a href="mailto:yogadharshinidev@gmail.com" style={{
+            <a href="#contact" style={{
               padding:'11px 26px', borderRadius:999,
               background:'linear-gradient(135deg,var(--navy),var(--blue))',
               color:'#fff', fontSize:13, fontWeight:700, textDecoration:'none',

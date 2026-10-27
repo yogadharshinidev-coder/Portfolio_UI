@@ -14,14 +14,14 @@ const SOCIALS = [
   },
   {
     label: 'GitHub',
-    href: 'https://github.com/yogadharshini-vr',
+    href: 'https://github.com/yogadharshinidev-coder',
     Icon: FaGithub,
     color: '#e2e8f0',
     bg: 'rgba(255,255,255,.08)',
   },
   {
     label: 'Email',
-    href: 'mailto:yogadharshinidev@gmail.com',
+    href: 'https://mail.google.com/mail/?view=cm&fs=1&to=yogadharshinidev@gmail.com',
     Icon: HiEnvelope,
     color: '#94bfce',
     bg: 'rgba(148,191,206,.15)',
@@ -29,7 +29,7 @@ const SOCIALS = [
 ];
 
 const TECH_TAGS = [
-  'React.js', 'TypeScript', 'Express.js',
+  'React.js', 'TypeScript', 'ASP.NET Core',
   '.NET Web API', 'C#', 'SQL Server', 'ERP Systems',
 ];
 
@@ -72,20 +72,30 @@ const Footer: React.FC = () => (
           </div>
 
           <p style={{ fontSize: 13, color: '#cbd5e1', lineHeight: 1.72 }}>
-            Building scalable enterprise web applications with React.js, Express.js &amp; .NET Web API.
+            Building scalable enterprise web applications with React.js, ASP.NET Core &amp; .NET Web API.
           </p>
 
           {/* Social icons */}
           <div style={{ display: 'flex', gap: 10, paddingTop: 4 }}>
             {SOCIALS.map(({ label, href, Icon, color, bg }) => {
-              const isMail = href.startsWith('mailto:');
+              const isMail = label === 'Email';
               return (
                 <a
                   key={label}
                   href={href}
-                  target={isMail ? undefined : "_blank"}
-                  rel={isMail ? undefined : "noopener noreferrer"}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={label}
+                  title={isMail ? 'Send email (yogadharshinidev@gmail.com)' : label}
+                  onClick={isMail ? (e) => {
+                    if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                      e.preventDefault();
+                      window.location.href = 'mailto:yogadharshinidev@gmail.com';
+                    }
+                    try {
+                      navigator.clipboard.writeText('yogadharshinidev@gmail.com');
+                    } catch {}
+                  } : undefined}
                   style={{
                     width: 38, height: 38, borderRadius: 10,
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -155,7 +165,19 @@ const Footer: React.FC = () => (
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
             <a
-              href="mailto:yogadharshinidev@gmail.com"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=yogadharshinidev@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Send email via Gmail"
+              onClick={(e) => {
+                if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                  e.preventDefault();
+                  window.location.href = 'mailto:yogadharshinidev@gmail.com';
+                }
+                try {
+                  navigator.clipboard.writeText('yogadharshinidev@gmail.com');
+                } catch {}
+              }}
               style={{ fontSize: 13, color: '#cbd5e1', textDecoration: 'none', transition: 'color .2s', display: 'inline-flex', alignItems: 'center', gap: 6 }}
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = '#94bfce'; }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = '#cbd5e1'; }}

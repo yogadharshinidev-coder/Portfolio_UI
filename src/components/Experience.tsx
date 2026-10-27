@@ -16,7 +16,7 @@ const EXPERIENCES = [
       'Built scalable RESTful APIs leveraging LINQ optimisation, asynchronous operations, and relational data mappings.',
       'Involved in the complete SDLC — requirement analysis, system design, development, testing, code reviews, and deployment.',
     ],
-    tags: ['React.js', 'TypeScript', 'Express.js', 'ASP.NET Core', 'EF Core', 'REST API', 'SQL Server', 'Agile'],
+    tags: ['React.js', 'TypeScript', 'ASP.NET Core', 'EF Core', 'REST API', 'SQL Server', 'Agile'],
   },
   {
     company: 'Subiksam Software Solutions Pvt Ltd',

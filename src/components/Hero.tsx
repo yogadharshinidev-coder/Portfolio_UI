@@ -398,7 +398,22 @@ const Hero: React.FC = () => {
                 </div>
                 Erode, Tamil Nadu
               </a>
-              <a href="mailto:yogadharshinidev@gmail.com" className="hero-contact-link">
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=yogadharshinidev@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Send email via Gmail"
+                onClick={(e) => {
+                  if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                    e.preventDefault();
+                    window.location.href = 'mailto:yogadharshinidev@gmail.com';
+                  }
+                  try {
+                    navigator.clipboard.writeText('yogadharshinidev@gmail.com');
+                  } catch {}
+                }}
+                className="hero-contact-link"
+              >
                 <div style={{ padding:6, background:'#fff', borderRadius:8, boxShadow:'0 2px 8px rgba(0,0,0,0.05)', display:'flex' }}>
                   <HiEnvelope size={16} style={{ color:'var(--teal)' }} />
                 </div>

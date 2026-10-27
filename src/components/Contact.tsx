@@ -4,7 +4,7 @@ import { HiEnvelope, HiPhone, HiMapPin, HiPaperAirplane, HiCheckCircle } from 'r
 interface ContactItem { icon: React.ElementType; label: string; value: string; href: string; accent: string; }
 
 const CONTACT_ITEMS: ContactItem[] = [
-  { icon: HiEnvelope, label:'Email',    value:'yogadharshinidev@gmail.com',  href:'mailto:yogadharshinidev@gmail.com', accent:'var(--navy)' },
+  { icon: HiEnvelope, label:'Email',    value:'yogadharshinidev@gmail.com',  href:'https://mail.google.com/mail/?view=cm&fs=1&to=yogadharshinidev@gmail.com', accent:'var(--navy)' },
   { icon: HiPhone,    label:'Phone',    value:'+91 9361352274',               href:'tel:9361352274',                    accent:'var(--blue)' },
   { icon: HiMapPin,   label:'Location', value:'Erode, Tamil Nadu, India',     href:'#',                                 accent:'var(--teal)' },
 ];
@@ -88,7 +88,19 @@ const Contact: React.FC = () => {
           <div className="reveal-left sd-1" style={{ display:'flex', flexDirection:'column', gap:14 }}>
             {CONTACT_ITEMS.map(({ icon:Icon, label, value, href, accent }) => (
               <a
-                key={label} href={href}
+                key={label}
+                href={href}
+                target={href.startsWith('http') ? '_blank' : undefined}
+                rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                onClick={label === 'Email' ? (e) => {
+                  if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                    e.preventDefault();
+                    window.location.href = 'mailto:yogadharshinidev@gmail.com';
+                  }
+                  try {
+                    navigator.clipboard.writeText('yogadharshinidev@gmail.com');
+                  } catch {}
+                } : undefined}
                 className="contact-pill-card"
                 style={{
                   ['--card-accent' as string]: accent,
